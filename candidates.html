@@ -18,14 +18,16 @@
         .search { background: #16213e; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
         .search input { width: 100%; padding: 12px 15px; border: 1px solid #333; border-radius: 8px; background: #0f0f1a; color: #eee; font-size: 1em; }
         .search input:focus { outline: none; border-color: #4ecca3; }
-        .table-container { background: #16213e; border-radius: 10px; overflow: hidden; }
-        table { width: 100%; border-collapse: collapse; }
-        th { background: #0f0f1a; color: #e94560; padding: 15px; text-align: left; }
+        .table-container { background: #16213e; border-radius: 10px; overflow: hidden; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { background: #0f0f1a; color: #e94560; padding: 15px; text-align: left; position: sticky; top: 0; }
         td { padding: 12px 15px; border-bottom: 1px solid #333; }
         tr:hover { background: rgba(255,255,255,0.05); }
         .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; }
         .badge-active { background: #4ecca3; color: #1a1a2e; }
         .badge-pending { background: #f39c12; color: #1a1a2e; }
+        .stats { display: flex; gap: 20px; margin-bottom: 15px; color: #888; font-size: 0.9em; }
+        .stats span { color: #4ecca3; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -42,12 +44,16 @@
             <a href="candidates.html" class="active">Candidates</a>
         </div>
         
+        <div class="stats">
+            Total: <span>27</span> | Verified: <span>17</span> | Pending: <span>10</span>
+        </div>
+        
         <div class="search">
-            <input type="text" placeholder="Search candidates by name, skill, location...">
+            <input type="text" id="searchInput" placeholder="Search candidates by name, skill, location..." onkeyup="filterTable()">
         </div>
         
         <div class="table-container">
-            <table>
+            <table id="candidatesTable">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -59,17 +65,192 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Sample Candidate 1</td>
-                        <td>Fundraising, NGO</td>
-                        <td>Bangalore</td>
-                        <td>5 years</td>
-                        <td><span class="badge badge-active">Active</span></td>
+                        <td>Uvesh Mohammad</td>
+                        <td>Sales</td>
+                        <td>Laxmi Nagar</td>
+                        <td>1 year - PLAN INDIA</td>
+                        <td><span class="badge badge-active">Verified</span></td>
                     </tr>
                     <tr>
-                        <td>Sample Candidate 2</td>
-                        <td>Grant Writing</td>
+                        <td>Gowtham</td>
+                        <td>Marketing, Sales, HR</td>
+                        <td>N/A</td>
+                        <td>Apple</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Niharika S</td>
+                        <td>Python, Javascript, Java, Excel</td>
                         <td>Hyderabad</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Arfath Shariff</td>
+                        <td>Marketing, Sales, Business Dev</td>
+                        <td>Bengaluru</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Adil A S</td>
+                        <td>Python, Java, React, Node.js</td>
+                        <td>Kerala</td>
+                        <td>Developer</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>G. Gnana Felsia</td>
+                        <td>Excel, PowerPoint, Business Dev</td>
+                        <td>N/A</td>
+                        <td>Student Program Coord</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Bharath Ram</td>
+                        <td>Excel, HR, Banking, Customer Service</td>
+                        <td>Bangalore</td>
+                        <td>1 year</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Saumyadeep Das</td>
+                        <td>Python, Excel, Sales, HR, Finance</td>
+                        <td>Bengaluru</td>
+                        <td>Technical background</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Harish Balappa</td>
+                        <td>HR, Management, Communication</td>
+                        <td>Bangalore</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Niveditha Nishant</td>
+                        <td>Java, SQL, HR, Management</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Gudaru Vishnu Vardhan</td>
+                        <td>Management</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Benson Varghese</td>
+                        <td>Excel, PowerPoint, Sales, Accounting</td>
+                        <td>Bengaluru</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Helenciya Thomson</td>
+                        <td>Excel, PowerPoint, Marketing, HR</td>
+                        <td>Coimbatore</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sajina Varghese</td>
+                        <td>Excel, Word, HR, Recruitment</td>
+                        <td>Bangalore</td>
+                        <td>Helping Hearts - Coimbatore</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Arun Kumar R</td>
+                        <td>Java, React, Excel, HR, Management</td>
+                        <td>Bengaluru</td>
+                        <td>1.8 years</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Dhiraj Wekhande</td>
+                        <td>Python, Java, SQL, Excel, Communication</td>
+                        <td>Pune</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mahammed Mahsooq</td>
+                        <td>Excel, Word, Marketing, HR, Recruitment</td>
+                        <td>Bangalore</td>
+                        <td>Recruitment support</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Bittu Kumar</td>
+                        <td>Excel, PowerPoint, Marketing, HR</td>
+                        <td>University</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>HR Professional</td>
+                        <td>HR, Management, Project Management</td>
+                        <td>N/A</td>
+                        <td>2 years</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sujay K</td>
+                        <td>SQL, Excel, Salesforce, SAP, HR</td>
+                        <td>Bangalore</td>
                         <td>3 years</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>HR Manager</td>
+                        <td>Excel, HR, Accounting, Management</td>
+                        <td>Mangalore</td>
+                        <td>N/A</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mudit Dhyani</td>
+                        <td>Python, SQL, HR, Operations</td>
+                        <td>N/A</td>
+                        <td>Management experience</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Tejaswini V</td>
+                        <td>Java, React, SQL, Oracle, HR</td>
+                        <td>Bangalore</td>
+                        <td>Workflow automation</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Lavan Kumar Guthaa</td>
+                        <td>Excel, Word, Communication</td>
+                        <td>Guthavandlauuru</td>
+                        <td>Career focused</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>HR Specialist</td>
+                        <td>HR, Recruitment, Operations</td>
+                        <td>N/A</td>
+                        <td>Employee records</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Abhilash R</td>
+                        <td>Python, Java, React, SQL, NG</td>
+                        <td>Bengaluru</td>
+                        <td>Intern - Dotch Endeavours</td>
+                        <td><span class="badge badge-active">Verified</span></td>
+                    </tr>
+                    <tr>
+                        <td>Asef Shaikh</td>
+                        <td>Marketing, Sales, Business Dev</td>
+                        <td>N/A</td>
+                        <td>Business development</td>
                         <td><span class="badge badge-pending">Pending</span></td>
                     </tr>
                 </tbody>
@@ -79,6 +260,25 @@
     <script>
         if (sessionStorage.getItem('xiro_auth') !== 'true') {
             window.location.href = 'index.html';
+        }
+        
+        function filterTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('candidatesTable');
+            const rows = table.getElementsByTagName('tr');
+            
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let found = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().includes(filter)) {
+                        found = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = found ? '' : 'none';
+            }
         }
     </script>
 </body>
