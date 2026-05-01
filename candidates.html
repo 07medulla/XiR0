@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidates - XIRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: #16213e; padding: 20px; border-radius: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { color: #e94560; }
+        .header a { color: #4ecca3; text-decoration: none; }
+        .nav { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .nav a { background: #16213e; padding: 10px 20px; border-radius: 8px; color: #eee; text-decoration: none; transition: all 0.3s; }
+        .nav a:hover { background: #e94560; }
+        .nav a.active { background: #e94560; }
+        .search { background: #16213e; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+        .search input { width: 100%; padding: 12px 15px; border: 1px solid #333; border-radius: 8px; background: #0f0f1a; color: #eee; font-size: 1em; }
+        .search input:focus { outline: none; border-color: #4ecca3; }
+        .table-container { background: #16213e; border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #0f0f1a; color: #e94560; padding: 15px; text-align: left; }
+        td { padding: 12px 15px; border-bottom: 1px solid #333; }
+        tr:hover { background: rgba(255,255,255,0.05); }
+        .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; }
+        .badge-active { background: #4ecca3; color: #1a1a2e; }
+        .badge-pending { background: #f39c12; color: #1a1a2e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👥 Candidates</h1>
+            <a href="index.html">← Back</a>
+        </div>
+        
+        <div class="nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="rig.html">RIG Graph</a>
+            <a href="harvester.html">CV Harvester</a>
+            <a href="candidates.html" class="active">Candidates</a>
+        </div>
+        
+        <div class="search">
+            <input type="text" placeholder="Search candidates by name, skill, location...">
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Skills</th>
+                        <th>Location</th>
+                        <th>Experience</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sample Candidate 1</td>
+                        <td>Fundraising, NGO</td>
+                        <td>Bangalore</td>
+                        <td>5 years</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sample Candidate 2</td>
+                        <td>Grant Writing</td>
+                        <td>Hyderabad</td>
+                        <td>3 years</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

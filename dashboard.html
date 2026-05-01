@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - XIRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: #16213e; padding: 20px; border-radius: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { color: #e94560; }
+        .header a { color: #4ecca3; text-decoration: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #16213e; border-radius: 10px; padding: 20px; }
+        .card h2 { color: #e94560; margin-bottom: 15px; font-size: 1.2em; }
+        .stat { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; }
+        .stat:last-child { border-bottom: none; }
+        .stat-value { color: #4ecca3; font-weight: bold; }
+        .nav { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .nav a { background: #16213e; padding: 10px 20px; border-radius: 8px; color: #eee; text-decoration: none; transition: all 0.3s; }
+        .nav a:hover { background: #e94560; }
+        .nav a.active { background: #e94560; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Dashboard</h1>
+            <a href="index.html">← Back</a>
+        </div>
+        
+        <div class="nav">
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="rig.html">RIG Graph</a>
+            <a href="harvester.html">CV Harvester</a>
+            <a href="candidates.html">Candidates</a>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h2>System Status</h2>
+                <div class="stat"><span>GPU Brain</span><span class="stat-value">Active</span></div>
+                <div class="stat"><span>OODA Cycle</span><span class="stat-value">Running</span></div>
+                <div class="stat"><span>xon Agent</span><span class="stat-value">Connected</span></div>
+                <div class="stat"><span>Neural Drift</span><span class="stat-value">0.008</span></div>
+            </div>
+            
+            <div class="card">
+                <h2>Recruitment Metrics</h2>
+                <div class="stat"><span>Total Candidates</span><span class="stat-value">5,152</span></div>
+                <div class="stat"><span>Cities Covered</span><span class="stat-value">215</span></div>
+                <div class="stat"><span>RIG Edges</span><span class="stat-value">907</span></div>
+                <div class="stat"><span>CVs Extracted</span><span class="stat-value">27</span></div>
+            </div>
+            
+            <div class="card">
+                <h2>Active Clients</h2>
+                <div class="stat"><span>CBM</span><span class="stat-value">HYD, BNG, Chennai</span></div>
+                <div class="stat"><span>MSF</span><span class="stat-value">HYD, BNG</span></div>
+                <div class="stat"><span>Hope Giver</span><span class="stat-value">BNG</span></div>
+                <div class="stat"><span>BBF</span><span class="stat-value">Mangalore, TVM</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
