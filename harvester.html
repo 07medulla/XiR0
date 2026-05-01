@@ -33,7 +33,7 @@
     <div class="container">
         <div class="header">
             <h1>📄 CV Harvester</h1>
-            <a href="index.html">← Back</a>
+            <a href="home.html">← Back</a>
         </div>
         
         <div class="nav">
@@ -71,5 +71,10 @@
             </ul>
         </div>
     </div>
+    <script>
+        if (sessionStorage.getItem('xiro_auth') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
