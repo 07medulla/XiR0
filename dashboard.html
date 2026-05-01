@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - XIRO</title>
+    <title>Dashboard - ProQruit</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
@@ -21,45 +21,51 @@
         .nav a { background: #16213e; padding: 10px 20px; border-radius: 8px; color: #eee; text-decoration: none; transition: all 0.3s; }
         .nav a:hover { background: #e94560; }
         .nav a.active { background: #e94560; }
+        .quick-action { background: linear-gradient(135deg, #e94560, #c73e54); color: #fff; padding: 20px; border-radius: 10px; text-align: center; text-decoration: none; display: block; margin-bottom: 20px; }
+        .quick-action:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3); }
+        .quick-action h3 { margin-bottom: 5px; }
+        .quick-action p { font-size: 0.9em; opacity: 0.9; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 Dashboard</h1>
+            <h1>📊 ProQruit Dashboard</h1>
             <a href="home.html">← Back</a>
         </div>
         
         <div class="nav">
             <a href="dashboard.html" class="active">Dashboard</a>
-            <a href="rig.html">RIG Graph</a>
-            <a href="harvester.html">CV Harvester</a>
             <a href="candidates.html">Candidates</a>
+            <a href="harvester.html">CV Upload</a>
         </div>
+        
+        <a href="harvester.html" class="quick-action">
+            <h3>📤 Upload New CVs</h3>
+            <p>Add candidate resumes to the database</p>
+        </a>
         
         <div class="grid">
             <div class="card">
-                <h2>System Status</h2>
-                <div class="stat"><span>GPU Brain</span><span class="stat-value">Active</span></div>
-                <div class="stat"><span>OODA Cycle</span><span class="stat-value">Running</span></div>
-                <div class="stat"><span>xon Agent</span><span class="stat-value">Connected</span></div>
-                <div class="stat"><span>Neural Drift</span><span class="stat-value">0.008</span></div>
+                <h2>📋 Candidates</h2>
+                <div class="stat"><span>Total Extracted</span><span class="stat-value">27</span></div>
+                <div class="stat"><span>Synced to Database</span><span class="stat-value">26</span></div>
+                <div class="stat"><span>Pending Review</span><span class="stat-value">11</span></div>
             </div>
             
             <div class="card">
-                <h2>Recruitment Metrics</h2>
-                <div class="stat"><span>Total Candidates</span><span class="stat-value">5,152</span></div>
-                <div class="stat"><span>Cities Covered</span><span class="stat-value">215</span></div>
-                <div class="stat"><span>RIG Edges</span><span class="stat-value">907</span></div>
-                <div class="stat"><span>CVs Extracted</span><span class="stat-value">27</span></div>
-            </div>
-            
-            <div class="card">
-                <h2>Active Clients</h2>
+                <h2>🏢 Active Clients</h2>
                 <div class="stat"><span>CBM</span><span class="stat-value">HYD, BNG, Chennai</span></div>
                 <div class="stat"><span>MSF</span><span class="stat-value">HYD, BNG</span></div>
                 <div class="stat"><span>Hope Giver</span><span class="stat-value">BNG</span></div>
                 <div class="stat"><span>BBF</span><span class="stat-value">Mangalore, TVM</span></div>
+            </div>
+            
+            <div class="card">
+                <h2>📈 Recent Activity</h2>
+                <div class="stat"><span>Last CV Processed</span><span class="stat-value">Today</span></div>
+                <div class="stat"><span>Database Sync</span><span class="stat-value">Active</span></div>
+                <div class="stat"><span>System Status</span><span class="stat-value">Online</span></div>
             </div>
         </div>
     </div>
